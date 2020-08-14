@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dir_list=('apk' 'data' 'logs/adb' 'logs/builds' 'logs/reports')
+dir_list=('apk' 'data' 'logs/adb' 'logs/builds' 'logs/debug' 'logs/reports')
 
 for d in "${dir_list[@]}"; do
   mkdir -p -v $d
