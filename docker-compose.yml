@@ -8,7 +8,7 @@ services:
 
 
   Samsung_Galaxy_S10:
-    image: appium/appium:local
+    image: appium:local
     depends_on:
       - selenium_hub
     privileged: true
@@ -26,7 +26,7 @@ services:
 
 
   Huawei_P30_Pro:
-    image: appium/appium:local
+    image: appium:local
     depends_on:
       - selenium_hub
     privileged: true
@@ -44,7 +44,7 @@ services:
 
 
   Samsung_Galaxy_A8:
-    image: appium/appium:local
+    image: appium:local
     depends_on:
       - selenium_hub
     privileged: true
@@ -62,7 +62,7 @@ services:
 
 
   Samsung_Galaxy_S8:
-    image: appium/appium:local
+    image: appium:local
     depends_on:
       - selenium_hub
     privileged: true
@@ -80,7 +80,7 @@ services:
 
 
   Xiaomi_Redmi_5_Plus:
-    image: appium/appium:local
+    image: appium:local
     depends_on:
       - selenium_hub
     privileged: true
@@ -98,7 +98,7 @@ services:
 
 
   Samsung_Galaxy_Tab_S4:
-    image: appium/appium:local
+    image: appium:local
     depends_on:
       - selenium_hub
     privileged: true
@@ -116,7 +116,7 @@ services:
 
 
   Samsung_Galaxy_Tab_S2:
-    image: appium/appium:local
+    image: appium:local
     depends_on:
       - selenium_hub
     privileged: true
@@ -134,7 +134,7 @@ services:
 
 
   Samsung_Galaxy_Note_4:
-    image: appium/appium:local
+    image: appium:local
     depends_on:
       - selenium_hub
     privileged: true
@@ -152,7 +152,7 @@ services:
 
 
   Genymotion_Google_Pixel:
-    image: appium/appium:local
+    image: appium:local
     depends_on:
       - selenium_hub
     privileged: true

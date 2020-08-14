@@ -11,7 +11,11 @@ dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 adb_log_dir="$dir/logs/adb"
 adb_log_file="adb_$(date +'%H_%M_%S_%d_%m_%Y').log"
 adb_log_path="$adb_log_dir/$adb_log_file"
-`mkdir -p $adb_log_dir`
+
+# Build logger path
+build_log_dir="$dir/logs/builds"
+build_log_file="build_$(date +'%H_%M_%S_%d_%m_%Y').log"
+build_log_path="$build_log_dir/$build_log_file"
 
 # Stop adb server to free up tcp:127.0.0.1:5037
 server_status=$(adb kill-server 2>&1)
@@ -32,6 +36,12 @@ echo -e "$t Running adb server in nodaemon mode. Logs: \033[4m$adb_log_path\033[
 server=$(adb -a -P 5037 nodaemon server > $adb_log_path 2>&1 &)
 echo -e "$t To stop the server, stop all emulators and run \033[1madb -P 5037 kill-server\033[0m"
 
+#Build appium image
+echo -e "$t Building appium docker image"
+build="$(docker build -f $dir/Dockerfile -t appium:local . > $build_log_path 2>&1)"
+
 # Deploy Selenium Grid with nodes using docker-compose
 echo -e "$t Deploy Selenium Grid with nodes using docker-compose"
 docker_compose="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && docker-compose --log-level CRITICAL up -d)"
+
+echo -e "$t Done"
