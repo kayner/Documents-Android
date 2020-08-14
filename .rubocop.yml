@@ -1,5 +1,2 @@
 require: rubocop-rspec
 inherit_from: .rubocop_todo.yml
-AllCops:
-  Exclude:
-    - 'spec/sandbox_spec.rb'
