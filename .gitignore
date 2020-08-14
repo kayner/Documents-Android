@@ -1,5 +1,5 @@
-# Spec reports
-*.html
+# Logs / reports
+logs/
 
 # Apk files
 *.apk
