@@ -1,0 +1,186 @@
+version: "2.2"
+
+services:
+  selenium_hub:
+    image: selenium/hub:3.14.0-curium
+    ports:
+      - 4444:4444
+
+
+  Samsung_Galaxy_S10:
+    image: appium/appium:local
+    depends_on:
+      - selenium_hub
+    privileged: true
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - ~/.android:/root/.android
+      - $PWD/apk:/root/tmp
+    ports:
+      - 4723:4723
+    environment:
+      - CONNECT_TO_GRID=true
+      - SELENIUM_HOST=selenium_hub
+      - ADB_SERIAL=RF8MB1W754F
+      - ADB_NAME=Samsung_Galaxy_S10
+
+
+  Huawei_P30_Pro:
+    image: appium/appium:local
+    depends_on:
+      - selenium_hub
+    privileged: true
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - ~/.android:/root/.android
+      - $PWD/apk:/root/tmp
+    ports:
+      - 4724:4724
+    environment:
+      - CONNECT_TO_GRID=true
+      - SELENIUM_HOST=selenium_hub
+      - ADB_SERIAL=DUM7N19315000382
+      - ADB_NAME=Huawei_P30_Pro
+
+
+  Samsung_Galaxy_A8:
+    image: appium/appium:local
+    depends_on:
+      - selenium_hub
+    privileged: true
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - ~/.android:/root/.android
+      - $PWD/apk:/root/tmp
+    ports:
+      - 4725:4725
+    environment:
+      - CONNECT_TO_GRID=true
+      - SELENIUM_HOST=selenium_hub
+      - ADB_SERIAL=5200953246b0a509
+      - ADB_NAME=Samsung_Galaxy_A8
+
+
+  Samsung_Galaxy_S8:
+    image: appium/appium:local
+    depends_on:
+      - selenium_hub
+    privileged: true
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - ~/.android:/root/.android
+      - $PWD/apk:/root/tmp
+    ports:
+      - 4726:4726
+    environment:
+      - CONNECT_TO_GRID=true
+      - SELENIUM_HOST=selenium_hub
+      - ADB_SERIAL=ce04171441ad90760c
+      - ADB_NAME=Samsung_Galaxy_S8
+
+
+  Xiaomi_Redmi_5_Plus:
+    image: appium/appium:local
+    depends_on:
+      - selenium_hub
+    privileged: true
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - ~/.android:/root/.android
+      - $PWD/apk:/root/tmp
+    ports:
+      - 4727:4727
+    environment:
+      - CONNECT_TO_GRID=true
+      - SELENIUM_HOST=selenium_hub
+      - ADB_SERIAL=29e0a4640904
+      - ADB_NAME=Xiaomi_Redmi_5_Plus
+
+
+  Samsung_Galaxy_Tab_S4:
+    image: appium/appium:local
+    depends_on:
+      - selenium_hub
+    privileged: true
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - ~/.android:/root/.android
+      - $PWD/apk:/root/tmp
+    ports:
+      - 4728:4728
+    environment:
+      - CONNECT_TO_GRID=true
+      - SELENIUM_HOST=selenium_hub
+      - ADB_SERIAL=ce091829a59c39261c7e
+      - ADB_NAME=Samsung_Galaxy_Tab_S4
+
+
+  Samsung_Galaxy_Tab_S2:
+    image: appium/appium:local
+    depends_on:
+      - selenium_hub
+    privileged: true
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - ~/.android:/root/.android
+      - $PWD/apk:/root/tmp
+    ports:
+      - 4729:4729
+    environment:
+      - CONNECT_TO_GRID=true
+      - SELENIUM_HOST=selenium_hub
+      - ADB_SERIAL=3300f241f9aca2fb
+      - ADB_NAME=Samsung_Galaxy_Tab_S2
+
+
+  Samsung_Galaxy_Note_4:
+    image: appium/appium:local
+    depends_on:
+      - selenium_hub
+    privileged: true
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - ~/.android:/root/.android
+      - $PWD/apk:/root/tmp
+    ports:
+      - 4730:4730
+    environment:
+      - CONNECT_TO_GRID=true
+      - SELENIUM_HOST=selenium_hub
+      - ADB_SERIAL=4100b454f28a91f7
+      - ADB_NAME=Samsung_Galaxy_Note_4
+
+
+  Genymotion_Google_Pixel:
+    image: appium/appium:local
+    depends_on:
+      - selenium_hub
+    privileged: true
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - ~/.android:/root/.android
+      - $PWD/apk:/root/tmp
+    ports:
+      - 4731:4731
+    environment:
+      - CONNECT_TO_GRID=true
+      - SELENIUM_HOST=selenium_hub
+      - ADB_SERIAL=192.168.56.101:5555
+      - ADB_NAME=Genymotion_Google_Pixel
+
+  # nexus_7.1.1:
+  #   image: budtmo/docker-android-x86-7.1.1
+  #   depends_on:
+  #     - selenium_hub
+  #     - samsung_galaxy_s10
+  #   privileged: true
+  #   volumes:
+  #     - $PWD/apk:/root/tmp
+  #   ports:
+  #     - 6080:6080
+  #   environment:
+  #     - DEVICE=Nexus 5
+  #     - CONNECT_TO_GRID=true
+  #     - APPIUM=true
+  #     - SELENIUM_HOST=selenium_hub
+  #     - AUTO_RECORD=false

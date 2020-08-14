@@ -1,10 +1,12 @@
 [caps]
+adbPort = "5037"
 appActivity = "app.editors.manager.ui.activities.login.SplashActivity"
 appPackage = "com.onlyoffice.documents"
 autoGrantPermissions = true
 automationName = "UiAutomator2"
-deviceName = "Device"
 language = "gb"
 locale = "EN"
 newCommandTimeout = "3600"
+platform = "Android"
 platformName = "Android"
+remoteAdbHost = "172.17.0.1"
