@@ -4,10 +4,11 @@ require 'rake'
 require 'rspec/core/rake_task'
 require_relative 'spec/spec_helper'
 
-def format_opts(device, tag_list)
+def format_opts(device, included_tags, excluded_tags)
   device.gsub!(' ', '_').downcase!
   tag_format = ''
-  tag_list.each { |tag| tag_format += "-t #{tag} " }
+  included_tags.each { |tag| tag_format += "-t #{tag} " }
+  excluded_tags.each { |tag| tag_format += "-t ~@#{tag} " }
   report_path = "reports/#{device}_#{Time.now.strftime '%d-%m_%H-%M-%S'}.html"
   "#{tag_format} -f html -o #{report_path}"
 end
@@ -27,7 +28,7 @@ namespace :run do
     RSpec::Core::RakeTask.new(:spec) do |t|
       ConfigHelper.load
       config = ConfigHelper.find_config_by_udid config_name, ENV['udid']
-      t.rspec_opts = format_opts config[:name], config[:tag_list]
+      t.rspec_opts = format_opts config[:name], config[:included_tags], config[:excluded_tags]
     end
 
     begin
