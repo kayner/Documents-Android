@@ -7,3 +7,4 @@ for d in "${dir_list[@]}"; do
 done
 
 chmod +x run.sh
+chmod +x stop.sh
