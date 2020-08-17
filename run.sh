@@ -9,12 +9,12 @@ dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # Adb logger path
 adb_log_dir="$dir/logs/adb"
-adb_log_file="adb_$(date +'%H_%M_%S_%d_%m_%Y').log"
+adb_log_file="adb_$(date +'%d_%m_%Y_%H_%M_%S').log"
 adb_log_path="$adb_log_dir/$adb_log_file"
 
 # Build logger path
 build_log_dir="$dir/logs/builds"
-build_log_file="build_$(date +'%H_%M_%S_%d_%m_%Y').log"
+build_log_file="build_$(date +'%d_%m_%Y_%H_%M_%S').log"
 build_log_path="$build_log_dir/$build_log_file"
 
 docker_check=$(docker --version 2>&1 | grep version)
